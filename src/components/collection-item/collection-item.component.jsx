@@ -13,7 +13,7 @@ const CollectionItem = ({ item, addItem }) => {
       <div
         className="image"
         style={{
-          background: `url(${imageUrl})`
+          background: `url(${imageUrl})`,
         }}
       />
       <div className="collection-footer">
@@ -21,15 +21,19 @@ const CollectionItem = ({ item, addItem }) => {
         <span className="price">{price}</span>
       </div>
 
-      <CustomButton inverted onClick={() => addItem(item)}>
+      <CustomButton
+        className="custom-button"
+        inverted
+        onClick={() => addItem(item)}
+      >
         Add to cart
       </CustomButton>
     </div>
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
 });
 
 export default connect(null, mapDispatchToProps)(CollectionItem);
